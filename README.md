@@ -44,7 +44,7 @@ Follow these exact steps to spin up the entire ecosystem on a fresh machine from
 1.  **Clone the repository:**
 
     ```bash
-    git clone
+    git clone https://github.com/EdMarzal97/vitract_tech_assessment.git
     cd vitract-assessment
     ```
 
@@ -59,22 +59,3 @@ Follow these exact steps to spin up the entire ecosystem on a fresh machine from
     - **Frontend Dashboard:** Open your browser at [http://localhost:3000](http://localhost:3000)
     - **Backend API Base URL:** [http://localhost:8080](http://localhost:8080)
     - **API Health Check:** [http://localhost:8080/health](http://localhost:8080/health)
-
-## Trade-offs, Alternatives & Future Improvements
-
-Given the constraints of a rapid technical assignment, certain strategic architectural choices were deliberately prioritized over others. With more development time, the following enhancements would be made:
-
-### 1. Dedicated Event Streaming (RabbitMQ / Kafka) vs. Internal Worker Threading
-
-- **Current State:** The current architecture uses a concurrent native Go-routine worker loop pattern. While highly performant for low-to-medium volumes, it shares CPU/Memory bottlenecks with the HTTP API layer.
-- **Alternative:** In a true enterprise environment, we would introduce a decoupled message broker like **RabbitMQ** or **Apache Kafka**. The API would simply publish a `SampleIngestedEvent`, and an entirely separate consumer microservice would pull messages off the queue. This guarantees absolute fault isolation and effortless horizontal scaling.
-
-### 2. Live WebSocket Triggers vs. Dashboard Polling
-
-- **Current State:** The frontend displays states populated at the time of page render, needing a manual browser refresh or periodic polling intervals to fetch processing status updates.
-- **Alternative:** For non-technical founders and practitioners who need real-time data accuracy, we would hook up a server-sent events (SSE) framework or a full **WebSocket** connection. This would allow the backend worker to push status changes (`pending` ➔ `processing` ➔ `done`) directly to the client view instantly without client overhead.
-
-### 3. Tighter Input Validation & Idempotency
-
-- **Current State:** The pipeline assumes the underlying data files generally align structurally with the assessment boundaries.
-- **Alternative:** For bulletproof data pipelines, we would implement an upstream validation layer using strong schemas, as well as strict database-level constraints on sample hashes to enforce absolute request idempotency—preventing accidental processing of identical biological records twice.
