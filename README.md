@@ -24,9 +24,9 @@ To understand how data flows through the system—from the initial ingestion of 
 
 ## 🛠️ Tech Stack
 
-- **Backend & Background Worker:** Go (Golang) 1.22
+- **Backend & Background Worker:** Go (Golang) 1.26
 - **Frontend Dashboard:** React (TypeScript / Vite)
-- **Database:** PostgreSQL 16
+- **Database:** PostgreSQL
 - **Orchestration & Containerization:** Docker & Docker Compose
 
 ---
