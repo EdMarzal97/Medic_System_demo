@@ -1,4 +1,4 @@
-# Vitract Microbiome Lab Platform Assessment
+# Demo Microbiome Lab Platform
 
 A reliable, scalable, and self-contained microbiome lab platform slice designed to ingest patient lab result files asynchronously, calculate microbial diversity scores, persist the structured data, and surface them through a responsive practitioner dashboard.
 
