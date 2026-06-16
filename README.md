@@ -44,7 +44,7 @@ Follow these exact steps to spin up the entire ecosystem on a fresh machine from
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/EdMarzal97/vitract_tech_assessment.git
+    git clone https://github.com/EdMarzal97/Medic_System_demo.git
     cd vitract-assessment
     ```
 
