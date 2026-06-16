@@ -45,7 +45,6 @@ Follow these exact steps to spin up the entire ecosystem on a fresh machine from
 
     ```bash
     git clone https://github.com/EdMarzal97/Medic_System_demo.git
-    cd vitract-assessment
     ```
 
 2.  **Launch the multi-container environment:**
